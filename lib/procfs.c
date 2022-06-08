@@ -6,7 +6,12 @@
  */
 #include <ctype.h>
 #include <unistd.h>
+#if __has_include(<sys/vfs.h>)
 #include <sys/vfs.h>
+#endif
+#if __has_include(<sys/mount.h>)
+#include <sys/mount.h>
+#endif
 #include <errno.h>
 
 #include "c.h"
