@@ -75,6 +75,10 @@
 # include <term.h>
 #endif
 
+#ifndef LINE_MAX
+#define LINE_MAX _POSIX2_LINE_MAX
+#endif
+
 #include "nls.h"
 #include "xalloc.h"
 #include "widechar.h"
