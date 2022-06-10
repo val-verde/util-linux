@@ -57,7 +57,7 @@ int ipc_sem_get_limits(struct ipc_limits *lim)
 
 	if (rc != 4) {
 		struct seminfo seminfo = { .semmni = 0 };
-		union semun arg = { .array = (ushort *) &seminfo };
+		union semun arg = { .array = (unsigned short *) &seminfo };
 
 		if (semctl(0, 0, IPC_INFO, arg) < 0)
 			return 1;
@@ -301,7 +301,7 @@ int ipc_sem_get_info(int id, struct sem_data **semds)
 
 	/* Fallback; /proc or /sys file(s) missing. */
 sem_fallback:
-	arg.array = (ushort *) (void *)&dummy;
+	arg.array = (unsigned short *) (void *)&dummy;
 	maxid = semctl(0, 0, SEM_INFO, arg);
 
 	for (j = 0; j <= maxid; j++) {

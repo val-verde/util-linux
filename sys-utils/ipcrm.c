@@ -263,7 +263,7 @@ static int remove_all(type_id type)
 		}
 	}
 	if (type == SEM || type == ALL) {
-		arg.array = (ushort *) (void *)&seminfo;
+		arg.array = (unsigned short *) (void *)&seminfo;
 		maxid = semctl(0, 0, SEM_INFO, arg);
 		if (maxid < 0)
 			errx(EXIT_FAILURE,

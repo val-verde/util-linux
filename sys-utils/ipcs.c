@@ -390,7 +390,7 @@ static void do_sem (char format)
 	{
 		struct seminfo seminfo;
 		union semun arg;
-		arg.array = (ushort *)  (void *) &seminfo;
+		arg.array = (unsigned short *)  (void *) &seminfo;
 		if (semctl (0, 0, SEM_INFO, arg) < 0) {
 			printf (_("kernel not configured for semaphores\n"));
 			return;
